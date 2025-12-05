@@ -21,7 +21,7 @@ A quick overview of what this repo is meant to hold:
   - Favorite extensions
   - Quicklinks
   - Snippets
-  - Commands I rely on daily
+  - Commands/scripts I rely on daily
 - `config-examples/` – notes, keybinding ideas, and setup guides
 
 > Note: Some files here are “templates” or examples. You can adapt the structure to match your own setup.
@@ -49,10 +49,10 @@ Here’s how this repository is organized:
 .
 ├─ README.md                # You are here
 ├─ raycast-settings/        # Exported settings and preferences
-│  ├─ snippets.json         # Example: saved text snippets
-│  ├─ quicklinks.json       # Example: saved quicklinks
-│  ├─ extensions.json       # Example: list of installed/favorite extensions
-│  └─ ...
+│  ├─ snippets.json         # saved text snippets
+│  ├─ quicklinks.json       # saved quicklinks
+│  ├─ extensions.json       # list of installed/favorite extensions
+│  └─ ...                   
 ├─ scripts/                 # Script Commands used in Raycast
 │  ├─ shell/
 │  │  └─ ...
@@ -61,9 +61,9 @@ Here’s how this repository is organized:
 │  └─ python/
 │     └─ ...
 ├─ extensions/              # Custom Raycast extensions
-│  ├─ my-custom-extension-1/
-│  └─ my-custom-extension-2/
-├─ config-examples/         # Notes & setup guides
-│  ├─ keybindings.md
-│  └─ raycast-setup-notes.md
-└─ LICENSE                  # Optional: license for your scripts & extensions
+│  ├─ ...
+│  └─ ...
+|─ config                   # Notes & setup guides
+   ├─ keybindings.md
+   └─ raycast-setup-notes.md
+
