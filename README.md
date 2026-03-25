@@ -23,6 +23,7 @@ A quick overview of what this repo is meant to hold:
   - Snippets
   - Commands/scripts I rely on daily
 - `config-examples/` – notes, keybinding ideas, and setup guides
+- `commands/suggestions/` – script commands for submitting and viewing feedback/suggestions via GitHub Issues
 
 > Note: Some files here are “templates” or examples. You can adapt the structure to match your own setup.
 
@@ -63,7 +64,24 @@ Here’s how this repository is organized:
 ├─ extensions/              # Custom Raycast extensions
 │  ├─ ...
 │  └─ ...
-|─ config                   # Notes & setup guides
-   ├─ keybindings.md
-   └─ raycast-setup-notes.md
+├─ config                   # Notes & setup guides
+│  ├─ keybindings.md
+│  └─ raycast-setup-notes.md
+└─ commands/
+   └─ suggestions/          # Submit & view feedback via GitHub Issues
+      ├─ submit-suggestion.sh
+      └─ view-suggestions.sh
+```
 
+---
+
+## 💡 Suggestions
+
+Have an idea for improving this setup? Use the Raycast script commands in `commands/suggestions/` to share your feedback directly through GitHub Issues:
+
+| Command | Description |
+|---|---|
+| **Submit Suggestion** | Opens a pre-filled GitHub new-issue form with your suggestion as the title |
+| **View Suggestions** | Opens the GitHub issues list filtered by the `suggestion` label |
+
+These commands make it easy to collect feedback without leaving Raycast.
