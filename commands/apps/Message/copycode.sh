@@ -20,15 +20,17 @@ result=$(sqlite3 /Users/$USERNAME/Library/Messages/chat.db 'SELECT text FROM mes
 
 #You can append another `keyword` into the list to support other language Messages.
 keyword=("验证码" "code");
-keyword_regex="^(.*)(${keyword[*]/%/|})(.*)$"
+keyword_joined=$(printf "%s|" "${keyword[@]}")
+keyword_joined="${keyword_joined%|}"
+keyword_regex="^.*($keyword_joined).*$"
 
-if [ ! $result ]; then
+if [ -z "$result" ]; then
   echo "No verification code received in the last 60 seconds!"
   exit 0;
 fi
 
-if [[ "$result" =~ "$keyword_regex" ]]; then
-  code=`echo $result | grep -o "[0-9]\{4,6\}"`;
+if [[ "$result" =~ $keyword_regex ]]; then
+  code=$(echo "$result" | grep -o "[0-9]\{4,6\}");
 
   echo "$code" | pbcopy;
   echo "$code code copied!"

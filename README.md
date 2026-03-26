@@ -47,23 +47,43 @@ Here’s how this repository is organized:
 
 ```text
 .
-├─ README.md                # You are here
-├─ raycast-settings/        # Exported settings and preferences
-│  ├─ snippets.json         # saved text snippets
-│  ├─ quicklinks.json       # saved quicklinks
-│  ├─ extensions.json       # list of installed/favorite extensions
-│  └─ ...                   
-├─ scripts/                 # Script Commands used in Raycast
-│  ├─ shell/
-│  │  └─ ...
-│  ├─ javascript/
-│  │  └─ ...
-│  └─ python/
-│     └─ ...
-├─ extensions/              # Custom Raycast extensions
-│  ├─ ...
-│  └─ ...
-|─ config                   # Notes & setup guides
-   ├─ keybindings.md
-   └─ raycast-setup-notes.md
-
+├── README.md                           # You are here
+└── commands/                           # Raycast Script Commands
+    ├── apps/                           # App-specific integrations
+    │   ├── Message/                    # Copy verification codes from Messages
+    │   ├── chatgpt/                    # Open ChatGPT in Safari
+    │   ├── claude/                     # Submit prompts to Claude via Chrome
+    │   ├── devutils/                   # DevUtils.app integrations (JWT, JSON, YAML…)
+    │   ├── dictionary/                 # Look up selected text in Dictionary
+    │   ├── evernote/                   # Create Evernote notes from clipboard
+    │   ├── notes/                      # Apple Notes integrations
+    │   ├── things/                     # Things 3 to-do management
+    │   └── wikipedia/                  # Wikipedia search
+    ├── conversions/                    # Clipboard transformation utilities
+    │   ├── clipboard-to-markdown.js
+    │   ├── inputs-to-markdown-link.sh
+    │   ├── json-prettify.sh            # Prettify JSON from clipboard
+    │   ├── rich-text-clipboard-to-markdown.sh
+    │   └── url-encode.sh               # URL-encode clipboard content
+    ├── developer-utils/                # Developer productivity tools
+    │   ├── base64-decode.sh            # Base64-decode clipboard content
+    │   ├── base64-encode.sh            # Base64-encode clipboard content
+    │   ├── create-image-from-code.sh
+    │   ├── generate-uuid.sh            # Generate a random UUID
+    │   ├── run-bash-command.sh
+    │   ├── search-script-command.sh
+    │   ├── unix-timestamp.sh           # Get or convert Unix timestamps
+    │   └── wayback-machine-save.sh
+    ├── navigation/                     # Finder & editor navigation
+    │   ├── open-finder-from-terminal.applescript
+    │   └── open-in-vscode.applescript  # Open current Finder dir in VS Code
+    └── web-searches/                   # Quick web searches
+        ├── mozilla-developer-network.sh
+        ├── search-github.sh            # Search GitHub repositories
+        ├── search-nodejs-docs.sh       # Search Node.js API docs
+        ├── search-npm.sh               # Search npm packages
+        ├── search-python3-docs.sh
+        ├── search-rust-docs.sh
+        ├── search-script-command-marketplace.sh
+        └── search-stackoverflow.sh     # Search Stack Overflow
+```
