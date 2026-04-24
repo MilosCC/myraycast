@@ -84,7 +84,7 @@ Every script **must** begin with a metadata header. Raycast reads these speciall
 |---|---|---|
 | `@raycast.schemaVersion` | Yes | Always `1` |
 | `@raycast.title` | Yes | Display name in Raycast |
-| `@raycast.mode` | Yes | `silent` (no output window), `compact` (inline), or `fullOutput` |
+| `@raycast.mode` | Yes | `silent` (runs in background; any echoed output appears as a brief HUD), `compact` (output shown inline in Raycast), or `fullOutput` (full scrollable output window) |
 | `@raycast.packageName` | No | Groups commands in Raycast UI |
 | `@raycast.icon` | No | Emoji or path like `images/icon.png` |
 | `@raycast.argument1..3` | No | JSON object: `{ "type": "text", "placeholder": "...", "optional": true, "percentEncoded": true }` |
@@ -108,10 +108,21 @@ Arguments are passed as `$1`, `$2`, `$3` in shell scripts, or `process.argv[2]`,
 - New scripts go in the most appropriate category folder under `commands/`
 - Use `@raycast.author MilosCC` and `@raycast.authorURL https://github.com/MilosCC` for scripts authored by the repo owner
 - If a script has an image icon, place the image in an `images/` subdirectory of the command's folder and reference it as `images/filename.png`
-- Use `@raycast.mode silent` for scripts that copy to clipboard or silently open things; use `@raycast.mode compact` for scripts that return a short text output
-- Scripts should print a confirmation message (e.g. `echo "Copied: $value"`) when operating silently on the clipboard
+- Use `@raycast.mode silent` for scripts that copy to clipboard, open URLs, or perform background actions; any `echo` output appears as a brief HUD notification — so always echo a short confirmation (e.g. `echo "Copied: $value"`) so the user knows the action succeeded
+- Use `@raycast.mode compact` for scripts whose primary result is text displayed inline in Raycast (e.g. a formatted timestamp or short search result); use `@raycast.mode fullOutput` for verbose output (e.g. diagnostics, multiline results)
 - Use `percentEncoded: true` on URL arguments to handle special characters safely
 - Error handling: print a user-friendly message and `exit 1` on failure
+
+## Script / PR Authoring Checklist
+
+Before committing a new or modified script, confirm:
+
+- [ ] Metadata header is complete: at minimum `schemaVersion`, `title`, and `mode` are present
+- [ ] Any argument that accepts a URL or free-form text uses `"percentEncoded": true` to handle special characters safely
+- [ ] The script has been run locally on macOS (executed directly in Terminal) and produces the expected output
+- [ ] Required macOS permissions are noted in `@raycast.description` or inline comments (e.g. Full Disk Access for Messages DB, Automation for AppleScript targets)
+- [ ] The script lives in the correct `commands/` subfolder; an `images/` subdirectory is added only when an icon file is included
+- [ ] Author fields are set: `@raycast.author MilosCC` and `@raycast.authorURL https://github.com/MilosCC`
 
 ## External Dependencies
 
